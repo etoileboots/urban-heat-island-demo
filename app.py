@@ -111,7 +111,7 @@ st.markdown("""
         margin: 0 auto !important;
         opacity: 0;
         animation: fadeIn 1s ease-out forwards;
-        animation-delay: 4.5s;
+        animation-delay: 3.0s;
     }
     
     .stButton > button:hover {
