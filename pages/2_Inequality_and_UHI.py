@@ -12,16 +12,9 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# =============================================================================
-# DATA FUNCTIONS
-# =============================================================================
-
 @st.cache_data
 def load_hvi_data():
-    """
-    Load Heat Vulnerability Index data from NYC Health EHDP.
-    Source: https://github.com/nychealth/EHDP-data
-    """
+    """Load Heat Vulnerability Index data from NYC Health EHDP."""
     import os
     csv_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'hvi-nta-2020.csv')
     df = pd.read_csv(csv_path)
@@ -87,10 +80,6 @@ def load_nta_geojson():
         pass
     return None
 
-# =============================================================================
-# CSS
-# =============================================================================
-
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap');
@@ -150,15 +139,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# =============================================================================
-# PAGE CONTENT
-# =============================================================================
-
-# Navigation
 if st.button("← Back to Overview", type="secondary"):
     st.switch_page("app.py")
 
-# Header
 st.markdown('<p class="section-label">02 / Equity</p>', unsafe_allow_html=True)
 st.markdown('<h1 class="page-header">Environmental Justice and Heat Exposure</h1>', unsafe_allow_html=True)
 st.markdown("""
@@ -171,10 +154,6 @@ of investment decisions.
 """, unsafe_allow_html=True)
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-
-# =============================================================================
-# HEAT VULNERABILITY MAP (MOVED FROM PAGE 1)
-# =============================================================================
 
 st.markdown('<p class="section-label">Geographic Distribution</p>', unsafe_allow_html=True)
 st.markdown('<p class="section-title">Heat Vulnerability Across NYC</p>', unsafe_allow_html=True)
@@ -354,10 +333,6 @@ Heat Vulnerability Index 2020
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
-# =============================================================================
-# REDLINING RESEARCH
-# =============================================================================
-
 st.markdown('<p class="section-label">Research Findings</p>', unsafe_allow_html=True)
 st.markdown('<p class="section-title">Temperature Disparities Today</p>', unsafe_allow_html=True)
 
@@ -373,7 +348,6 @@ investment resulted in fewer trees, more impervious surfaces, and less green inf
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
-# Comparison
 st.markdown('<p class="section-label">Comparative Analysis</p>', unsafe_allow_html=True)
 st.markdown('<p class="section-title">HOLC Grade A vs. Grade D Today</p>', unsafe_allow_html=True)
 
@@ -395,7 +369,6 @@ with col2:
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
-# Health outcomes
 st.markdown('<p class="section-label">Health Impact</p>', unsafe_allow_html=True)
 st.markdown('<p class="section-title">Heat-Related Health Disparities</p>', unsafe_allow_html=True)
 
@@ -406,7 +379,6 @@ Heat-related mortality is concentrated in specific populations and neighborhoods
 """)
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
-# Vulnerable populations
 st.markdown('<p class="section-label">At-Risk Groups</p>', unsafe_allow_html=True)
 st.markdown('<p class="section-title">Populations Most Vulnerable to Extreme Heat</p>', unsafe_allow_html=True)
 
@@ -446,7 +418,6 @@ with col4:
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
-# Sources
 st.markdown("""
 **Sources:**
 - [Hoffman, Shandas & Pendleton (2020)](https://www.mdpi.com/2225-1154/8/1/12) — "The Effects of Historical Housing Policies on Resident Exposure to Intra-Urban Heat," *Climate* 8(1)
@@ -455,7 +426,6 @@ st.markdown("""
 - [NYC Gov](https://a816-dohbesp.nyc.gov/IndicatorPublic/data-features/heat-report/) — "2025 NYC Heat-Related Mortality Report"
 """)
 
-# Navigation
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns([1, 1, 1])

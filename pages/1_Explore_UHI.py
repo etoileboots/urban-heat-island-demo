@@ -9,17 +9,11 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# =============================================================================
-# DATA FUNCTIONS
-# =============================================================================
-
 @st.cache_data
 def get_hourly_uhi_data():
     """
-    Hourly temperature data for NYC UHI based on research studies.
-    Sources:
-      - Gedzelman et al. (2003) "Mesoscale aspects of the Urban Heat Island around New York City"
-        https://link.springer.com/article/10.1007/s00704-002-0724-2
+    Hourly temperature data for NYC UHI.
+    Source: Gedzelman et al. (2003)
     """
     data = {
         0:  {'urban': 79, 'rural': 68, 'diff': 11},
@@ -46,13 +40,9 @@ def get_hourly_uhi_data():
         21: {'urban': 82, 'rural': 71, 'diff': 11},
         22: {'urban': 81, 'rural': 70, 'diff': 11},
         23: {'urban': 80, 'rural': 69, 'diff': 11},
-    }
     return data
 
-# =============================================================================
-# ALBEDO DATA (Hood College Urban Heat Studies)
-# =============================================================================
-
+# Albedo data from Hood College Urban Heat Studies
 ALBEDO_SURFACES = {
     "Urban Surfaces": {
         "Fresh Asphalt": {"albedo": 0.04, "color": "#1a1a1a"},
@@ -79,10 +69,7 @@ for category, surfaces in ALBEDO_SURFACES.items():
     for name, data in surfaces.items():
         ALL_SURFACES[name] = {**data, "category": category}
 
-# =============================================================================
-# CONTRIBUTING FACTORS DATA
-# =============================================================================
-
+# Contributing Factors Data
 FACTORS = [
     {
         "title": "Albedo: The Reflectivity Factor",
@@ -147,10 +134,6 @@ In dense urban areas, anthropogenic heat adds additional warming on top of surfa
         "source_url": "https://www.epa.gov/heatislands/what-are-heat-islands"
     }
 ]
-
-# =============================================================================
-# CSS
-# =============================================================================
 
 st.markdown("""
 <style>
@@ -221,10 +204,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# =============================================================================
-# PAGE CONTENT
-# =============================================================================
-
 if st.button("← Back to Overview", type="secondary"):
     st.switch_page("app.py")
 
@@ -246,10 +225,6 @@ warmer** than it would be without city-related conditions.
 """)
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-
-# =============================================================================
-# CONTRIBUTING FACTORS
-# =============================================================================
 
 if 'factor_slide' not in st.session_state:
     st.session_state.factor_slide = 0
@@ -321,10 +296,6 @@ with factor_container:
         st.markdown(f"**Source:** [{factor['source']}]({factor['source_url']})")
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-
-# =============================================================================
-# ALBEDO EXPLORER
-# =============================================================================
 
 st.markdown('<p class="section-label">Interactive</p>', unsafe_allow_html=True)
 st.markdown('<p class="section-title">Albedo Explorer: See How Surfaces Reflect Light</p>', unsafe_allow_html=True)

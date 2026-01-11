@@ -9,13 +9,9 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Data
 @st.cache_data
 def get_solution_effectiveness():
-    """
-    Cooling effectiveness of interventions.
-    Sources: EPA Heat Island Mitigation; Cool Neighborhoods NYC Report
-    """
+    """Cooling effectiveness of interventions."""
     return pd.DataFrame({
         'Intervention': ['Urban Trees', 'Green Roofs', 'Cool Roofs', 'Parks & Open Space', 'Cool Pavement'],
         'Cooling Effect': ['20-45°F (surface)', '6-8°F', '5-7°F', '2-4°F', '2-4°F'],
@@ -84,11 +80,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Navigation
 if st.button("← Back to Overview", type="secondary"):
     st.switch_page("app.py")
 
-# Header
 st.markdown('<p class="section-label">03 / Solutions</p>', unsafe_allow_html=True)
 st.markdown('<h1 class="page-header">Mitigation Strategies and NYC Initiatives</h1>', unsafe_allow_html=True)
 st.markdown("""
@@ -115,7 +109,6 @@ with col3:
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
-# NYC Programs
 st.markdown('<p class="section-label">NYC Initiatives</p>', unsafe_allow_html=True)
 st.markdown('<p class="section-title">Active Cooling Programs</p>', unsafe_allow_html=True)
 
@@ -155,7 +148,6 @@ with col2:
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
-# Equity focus
 st.markdown('<p class="section-label">Equity Focus</p>', unsafe_allow_html=True)
 st.markdown('<p class="section-title">Prioritizing High-Vulnerability Communities</p>', unsafe_allow_html=True)
 
@@ -193,7 +185,6 @@ with col3:
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
-# Resources
 st.markdown('<p class="section-label">Resources</p>', unsafe_allow_html=True)
 st.markdown('<p class="section-title">Programs and Applications</p>', unsafe_allow_html=True)
 
@@ -234,7 +225,6 @@ st.markdown("""
 - [NYC Green Roof Tax Abatement](https://www.nyc.gov/site/finance/property/landlords-green-roof.page) — NYC Department of Finance
 """)
 
-# Navigation
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns([1, 1, 1])

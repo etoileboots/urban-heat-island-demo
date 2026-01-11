@@ -8,11 +8,10 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Check if this is first load using session state
 if 'loaded' not in st.session_state:
     st.session_state.loaded = False
 
-# Clean light mode CSS with fade-in animations
+# Fade-in animations and styling
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Gotu&display=swap');
@@ -136,7 +135,6 @@ st.markdown("""
         text-align: center !important;
     }
     
-    /* Style the number */
     .stButton > button strong {
         font-size: 0.75rem !important;
         font-weight: 600 !important;
@@ -146,13 +144,11 @@ st.markdown("""
         margin-bottom: 12px !important;
     }
     
-    /* Center the columns properly */
     [data-testid="column"] {
         display: flex !important;
         justify-content: center !important;
     }
     
-    /* For already loaded state - show immediately */
     .loaded .stButton > button {
         opacity: 1 !important;
         animation: none !important;
@@ -167,11 +163,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Add loaded class if returning to page
 if st.session_state.loaded:
     st.markdown('<script>document.querySelector(".stApp").classList.add("loaded");</script>', unsafe_allow_html=True)
 
-# Hero section with staggered fade-in
 st.markdown("""
 <div class="hero-container">
     <p class="hero-welcome">Welcome to the</p>
@@ -180,7 +174,6 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Navigation cards
 col1, col2, col3 = st.columns([1, 3, 1])
 
 with col2:
@@ -219,5 +212,4 @@ Mitigations
             st.session_state.loaded = True
             st.switch_page("pages/3_Mitigations_and_Solutions.py")
 
-# Mark as loaded after first render
 st.session_state.loaded = True
