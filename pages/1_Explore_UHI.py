@@ -40,6 +40,7 @@ def get_hourly_uhi_data():
         21: {'urban': 82, 'rural': 71, 'diff': 11},
         22: {'urban': 81, 'rural': 70, 'diff': 11},
         23: {'urban': 80, 'rural': 69, 'diff': 11},
+    }
     return data
 
 # Albedo data from Hood College Urban Heat Studies
